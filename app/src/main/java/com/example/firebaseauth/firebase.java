@@ -60,6 +60,7 @@ public class firebase extends AppCompatActivity {
         String amorbidos = txtinpamorbidos.getText().toString();
         String heridas1 = txtinpheridas1.getText().toString();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
+
         DatabaseReference myRef = database.getReference(rut);
 
         datospaciente datosPacienteins = new datospaciente(rut,nombre,diagnostico,sexo,edad,fecha,tiempoev,medicamentos,amorbidos,heridas1);
@@ -83,8 +84,8 @@ public class firebase extends AppCompatActivity {
 
     }
 
-    public void leerdatos() {
-        Intent intent = new Intent(this,LoadActivity.class);
+    public void leerdatos(View view) {
+        Intent intent = new Intent(firebase.this,LoadActivity.class);
         startActivity(intent);
 
        /*load.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {

@@ -32,11 +32,13 @@ public class LoadActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
+    FrameLayout layoutframe;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     EditText buscadorcorto;
-    Button btnbuscarcorto;
-    fragmentficha fragment_ficha = new fragmentficha();
+
+    Button btnbuscarcorto,botonherida;
+    //fragmentficha fragment_ficha = new fragmentficha();
 
 
     @Override
@@ -45,12 +47,14 @@ public class LoadActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_load);
 
         toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Inicio");
+        toolbar.setTitle("");
         setSupportActionBar(toolbar);
         buscadorcorto = findViewById(R.id.editTextbuscador);
         btnbuscarcorto = findViewById(R.id.botonbuscar);
 
         navigationView = findViewById(R.id.navigationView);
+        layoutframe = findViewById(R.id.layoutframe);
+        layoutframe.setVisibility(View.INVISIBLE);
 
 
         drawerLayout = findViewById(R.id.drawer);
@@ -77,6 +81,7 @@ public class LoadActivity extends AppCompatActivity implements NavigationView.On
         txtinpamorbidos = findViewById(R.id.amorbidos);
         txtinpmedicamentos=findViewById(R.id.medicamentos);
         txtinpherida1 = findViewById(R.id.herida1);
+        botonherida=findViewById(R.id.botonherida);
         //getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, fragment_ficha).commit();
 
 
@@ -114,6 +119,7 @@ public class LoadActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 if (documentSnapshot.exists()) {
+                    layoutframe.setVisibility(View.VISIBLE);
 
                     String ruta = documentSnapshot.getString(disrut);
                     txtinprut.setText(ruta);
@@ -135,6 +141,9 @@ public class LoadActivity extends AppCompatActivity implements NavigationView.On
                     txtinpfecha.setText(fecha);
                     String herida1= documentSnapshot.getString(disherida1);
                     txtinpherida1.setText(herida1);
+                    txtinpherida1.setVisibility(View.INVISIBLE);
+                    botonherida.setText(herida1);
+
 
 
                 } else {
@@ -142,5 +151,11 @@ public class LoadActivity extends AppCompatActivity implements NavigationView.On
                 }
             }
         });
+    }
+
+    public void evaluar(View view) {
+        Intent intent = new Intent(LoadActivity.this,EscalasanElian.class);
+        intent.putExtra("rutdelpaciente",txtinprut.getText().toString());
+        startActivity(intent);
     }
 }

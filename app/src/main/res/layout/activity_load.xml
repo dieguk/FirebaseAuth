@@ -180,15 +180,22 @@
                         android:layout_height="wrap_content"
                         android:text="localizacion de herida" />
 
+
                     <EditText
                         android:id="@+id/herida1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="pull fecha"
-                        app:helperText="ingresar fecha"
+                        android:hint="herida 1"
                         app:layout_constraintTop_toBottomOf="@+id/textView"
                         tools:layout_editor_absoluteX="0dp" />
 
+                    <Button
+                        android:id="@+id/botonherida"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="herida 1"
+                        android:onClick="evaluar"
+                         />
 
                 </LinearLayout>
             </ScrollView>
