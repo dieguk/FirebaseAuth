@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".firstFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+
+            android:text="1. Localizacion inicial (donde comenzo la herida)"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnfalange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="#4CAF50"
+            android:backgroundTint="#4CAF50"
+            android:text="Falanges"
+            app:layout_constraintRight_toLeftOf="@+id/btnmetatarsal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <Button
+            android:id="@+id/btnmetatarsal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="#FFC107"
+            android:text="Metatarsal"
+            app:layout_constraintLeft_toRightOf="@id/btnfalange"
+            app:layout_constraintRight_toLeftOf="@+id/btntarsal"
+
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <Button
+            android:id="@+id/btntarsal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="#F44336"
+            android:text="tarsal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/btnmetatarsal"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="2. Loalizacion Actual de la Herida"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnmetatarsal" />
+
+        <Button
+            android:id="@+id/btndorsal"
+            android:layout_width="104dp"
+            android:layout_height="77dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="#4CAF50"
+            android:text="Dorsal o plantar"
+            app:layout_constraintLeft_toRightOf="@+id/btnmedial"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <Button
+            android:id="@+id/btnmedial"
+            android:layout_width="125dp"
+            android:layout_height="84dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="20dp"
+            android:background="#FFC107"
+            android:text="Medial, Lateral o Tobillo"
+            app:layout_constraintEnd_toStartOf="@+id/btndosomas"
+            app:layout_constraintLeft_toRightOf="@+id/btndorsal"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <Button
+            android:id="@+id/btndosomas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:background="#F44336"
+            android:text="Dos o mas"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <TextView
+
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:onClick="informaciondeescala"
+            android:text="3. Nuemro de zonas afectadas"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnmedial"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/btnuna"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="#4CAF50"
+            android:text="Una"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <Button
+            android:id="@+id/btndos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="#FFC107"
+            android:text="Dos"
+            app:layout_constraintEnd_toStartOf="@+id/btntresomas"
+            app:layout_constraintStart_toEndOf="@id/btnuna"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <Button
+            android:id="@+id/btntresomas"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="#F44336"
+            android:text="Tres o más"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="72dp"
+            android:visibility="invisible"
+            android:elevation="8dp"
+            android:text="texto de prueba para informacion sobre las escalas"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>
