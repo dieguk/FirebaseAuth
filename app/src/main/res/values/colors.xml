@@ -16,4 +16,8 @@
     <color name="icons">#FFFFFF</color>
     <color name="divider">#BDBDBD</color>
     <color name="hint_register">#dbdbdb</color>
+    <color name="verde">#FF4CAF50</color>
+    <color name="amarillo">#FFFFC107</color>
+    <color name ="rojo">#FFF44336</color>
+
 </resources>

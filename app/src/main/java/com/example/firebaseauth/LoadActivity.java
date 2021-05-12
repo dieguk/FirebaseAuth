@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -36,6 +38,7 @@ public class LoadActivity extends AppCompatActivity implements NavigationView.On
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     EditText buscadorcorto;
+
 
     Button btnbuscarcorto,botonherida;
     //fragmentficha fragment_ficha = new fragmentficha();
@@ -71,6 +74,7 @@ public class LoadActivity extends AppCompatActivity implements NavigationView.On
         frameLayout = findViewById(R.id.layoutframe);
 
 
+
         txtinprut = findViewById(R.id.RUT);
         txtinpnombre = findViewById(R.id.nombre);
         txtinpdiagnostico = findViewById(R.id.diagnostico);
@@ -83,6 +87,8 @@ public class LoadActivity extends AppCompatActivity implements NavigationView.On
         txtinpherida1 = findViewById(R.id.herida1);
         botonherida=findViewById(R.id.botonherida);
         //getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, fragment_ficha).commit();
+
+
 
 
     }
@@ -141,8 +147,15 @@ public class LoadActivity extends AppCompatActivity implements NavigationView.On
                     txtinpfecha.setText(fecha);
                     String herida1= documentSnapshot.getString(disherida1);
                     txtinpherida1.setText(herida1);
-                    txtinpherida1.setVisibility(View.INVISIBLE);
+
+
                     botonherida.setText(herida1);
+                    if (herida1 == ""){
+                        txtinpherida1.setVisibility(View.INVISIBLE);
+                    }else{
+                        botonherida.setText(herida1);
+                        botonherida.setVisibility(View.VISIBLE);
+                    }
 
 
 
@@ -156,6 +169,19 @@ public class LoadActivity extends AppCompatActivity implements NavigationView.On
     public void evaluar(View view) {
         Intent intent = new Intent(LoadActivity.this,EscalasanElian.class);
         intent.putExtra("rutdelpaciente",txtinprut.getText().toString());
-        startActivity(intent);
+        intent.putExtra("nombreherida",botonherida.getText().toString());
+        if (botonherida.getText().toString()!= ""){
+        startActivity(intent);}
     }
+
+    public void informaciondeescala(View view) {
+        TextView textinfo =findViewById(R.id.textView11);
+        textinfo.setVisibility(View.VISIBLE);
+    }
+
+
+
+
+
+
 }
